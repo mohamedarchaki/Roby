@@ -120,6 +120,7 @@ body{
     transition: var(--transition-1);
     height: 30px;
     width: 30px;
+    z-index: 2;
 }
 @media (max-width: 767px) {
     #menu{
@@ -172,7 +173,18 @@ body{
 }
 @media (max-width: 767px) {
     .header .container ul{
-    display: none;
+        height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -15px;
+    right: 0;
+    background: black;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
 }
 }
 .header .container ul > li{
@@ -187,15 +199,7 @@ body{
     font-size: var(--fs-4);
 }
 .header .container .is-active{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: -15px;
-    right: 0;
-    background: black;
-    width: 100%;
-    z-index: 1;
-    text-align: center;
+    height: 284px;
 }
 .header .container .is-active > li {
     color: var(--main-color);
@@ -217,6 +221,7 @@ body{
 @media(max-width:767px){
     .home {
         height: auto;
+        padding-bottom: 41px;
     }
 }
 .home .container{
@@ -225,16 +230,17 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-
+@media(max-width:455px){
+    .home .container{
+    flex-direction: column;
+    padding: 20px 15px;
+}
+}
 .home .container .box{
     height: fit-content;
     position: relative;
 }
-@media(max-width:767px){
-    .home .container .box:last-child{
-        display: none;
-    }
-}
+
 .home .container .box h5{
     margin-top: 0;
     color: var(--black-color);
@@ -264,6 +270,11 @@ body{
     transform: rotate(-35deg);
     position: relative;
 }
+@media(max-width:767px){
+    .home .container .box:last-child{
+        padding-top: 10px;
+    }
+}
 .home .container .box:last-child::before{
     content: '';
     top: -80px;
@@ -273,6 +284,17 @@ body{
     width: 465px;
     background-color: var(--black-color);
     border-radius: 50%;
+}
+@media(max-width:767px){
+    .home .container .box img{
+        height: 125px;
+    }
+    .home .container .box:last-child::before{
+        top: -23px;
+    right: 12px;
+    height: 200px;
+    width: 205px;
+    }
 }
 /* end home  */
 
@@ -304,6 +326,7 @@ body{
 .featured .container .box img{
     transform: rotate(-20deg);
 }
+
 .featured .container .box h2{
     margin: 20px 5px;
     color: var(--black-color);
