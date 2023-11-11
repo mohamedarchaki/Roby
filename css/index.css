@@ -35,6 +35,9 @@
         --fs-5:  14px;
     }
 }
+html{
+    scroll-behavior: smooth;
+}
 a{
     text-decoration: none;
 }
